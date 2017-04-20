@@ -1,7 +1,7 @@
-#!/usr/bin/perl 
+#!/usr/bin/perl
 
 #  Author: Joe Godbehere
-# split a motif file into chunks, each containing an ~equal quantity of motifs 
+# split a motif file into chunks, each containing an ~equal quantity of motifs
 
 use POSIX (ceil);
 use File::Basename;
@@ -23,6 +23,7 @@ my $prefix;
 my $postfix = "";
 my $output_dir = ".";
 my $min_motif_length = 0;
+my $max_motifs_per_chunk = 200; #work around HOMER limitation
 
 for(my $i=0; $i < @ARGV; ++$i) {
   if($ARGV[$i] eq "-m") {
@@ -103,9 +104,19 @@ if($motif_length >= $min_motif_length) {
   ++$motif_rejected_count;
 }
 
-print STDERR "Accepted motifs: $motif_count, rejected motifs: $motif_rejected_count\n";
+print STDERR "Read motifs: $motif_count, rejected motifs: $motif_rejected_count\n";
 
 my $motifs_per_chunk = ceil($motif_count / $chunk_count);
+
+if($motifs_per_chunk > $max_motifs_per_chunk) {
+  print STDERR "The specified number of chunks ($chunk_count) would result in $motifs_per_chunk motifs per chunk, but we require that there are at most $max_motifs_per_chunk in each chunk. Please run the script again, specifying a larger number of chunks.\n";
+  exit 1;
+}
+
+if($chunk_count < 2) {
+  print STDERR "No need to split the input into chunks.\n";
+  exit 0;
+}
 
 seek MOTIF_FILE, 0, SEEK_SET; #return to start of file
 

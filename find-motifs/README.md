@@ -1,8 +1,7 @@
 ## Installation:
 1. Make sure `ChIP_pip_fromPeakfile.sh` and `ChIP_pip_fromAnnofile.sh` are executable. i.e. in *nix: `chmod 775 *.sh`
-2. Install BEDTOOLS: e.g. on a Debian distribution of *nix, such as Ubuntu: `sudo apt-get install bedtools`
-3. Install HOMER: http://homer.ucsd.edu/homer/introduction/install.html
-4. Install the relevant genome to HOMER. e.g. if we wanted to use `hg19`, then we navigate to the directory where HOMER is installed, then run
+2. Install HOMER: http://homer.ucsd.edu/homer/introduction/install.html
+3. Install the relevant genome to HOMER. e.g. if we wanted to use `hg19`, then we navigate to the directory where HOMER is installed, then run
   `perl configureHomer.pl -install hg19`
 
 ## Usage:

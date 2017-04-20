@@ -12,7 +12,6 @@
 # the annotation file will be sorted in-place
 
 #Requires:
-# bedtools
 # perl
 
 #Usage:
