@@ -1,3 +1,4 @@
+#  Author: Xin Wang  flyboyleo@gmail.com
 system("mkdir ~/Downloads/TCF7L2/; cd ~/TCF7L2_motif_freq/; cp --parents `find -name \*.Rdata` ~/Downloads/TCF7L2/")
 library(gtools)
 setwd("~/Downloads/TCF7L2/")

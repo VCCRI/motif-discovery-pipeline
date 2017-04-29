@@ -1,4 +1,4 @@
-
+#  Author: Xin Wang  flyboyleo@gmail.com
 setwd("~/TCF7L2_motif_freq/120/") 
 
 library(randomForest)
