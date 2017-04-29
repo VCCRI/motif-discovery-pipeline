@@ -7,4 +7,4 @@
 ### Part two: RandomForest implementations in the paper  (./RF_implementation)
 
 
-Click into the part you are looking for.
+Please click into the part you are looking for.
