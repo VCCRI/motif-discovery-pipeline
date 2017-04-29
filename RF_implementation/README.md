@@ -11,17 +11,20 @@ The two sub-folders contains the raw unique peaks of TCF7L2 and MAX dataset. Thi
 ```
 cd TCF7L2; sh ../data_generation_and_CV/FlankingRegion_Top_NarrowPeak_auto.sh
 ```
-#### 2). Run modified HOMER: (this step would be paralleled and quite CPU and memory consuming, it's recommanded to run on clusters such as Amazon AWS, this step also required original HOMER installed successfully with HOMER in the PATH and hg19 reference genome setuped in HOMER. See details in part 1 readme of find-motifs or HOMER manual online.)
+#### 2). Run modified HOMER: 
+(this step would be paralleled and quite CPU and memory consuming, it's recommanded to run on clusters such as Amazon AWS, this step also required original HOMER installed successfully with HOMER in the PATH and hg19 reference genome setuped in HOMER. See details in part 1 readme of find-motifs or HOMER manual online.)
 
 ```
 sh ../data_generation_and_CV/whole_pipline_auto_for_flanking_CV.sh
 ```
 
-#### 3.) Run G_Matrix_compare_auto2_only_bed.R to change modified HOMER pipeline output bed file to motif frequency matrix. (it's recommanded to run this step on clusters such as Amazon AWS, change CPU numbers in the script header to fit your own configuration.)
+#### 3.) Run G_Matrix_compare_auto2_only_bed.R to change modified HOMER pipeline output bed file to motif frequency matrix. 
+(it's recommanded to run this step on clusters such as Amazon AWS, change CPU numbers in the script header to fit your own configuration.)
 ```
 mkdir ~/TCF7L2_motif_freq/; Rscript ../data_generation_and_CV/G_Matrix_compare_auto2_only_bed.R
 ```
-#### 4.) Copy and run AutoMergeTable_auto_5-300.sh to merge each cell-line's motif frequency count to a matrix for Random Forest step. (setp 3 output files are now at ~/TCF7L2_motif_freq/, copy AutoMergeTable_auto_5-300.sh to ~/TCF7L2_motif_freq/)
+#### 4.) Copy and run AutoMergeTable_auto_5-300.sh to merge each cell-line's motif frequency count to a matrix for Random Forest step. 
+(setp 3 output files are now at ~/TCF7L2_motif_freq/, copy AutoMergeTable_auto_5-300.sh to ~/TCF7L2_motif_freq/)
 ```
 cd ~/TCF7L2_motif_freq/; sh AutoMergeTable_auto_5-300.sh
 ```
