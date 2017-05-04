@@ -48,10 +48,10 @@ Rscript AUROC_TCF_100times.R
 Then you would get "OOB_120_TCF7L2.pdf" and "AUC_TCF_100times_TCF7L2.pdf" in "~/TCF7L2_motif_freq/120/".
 
 ## 3. Apply Random Forest with feature selection and tuning RF, get mean decrease accuracy (MDA) for each motif and extract rules by inTree.
-Run:
+Run the script below line by line:
 
 ```
-Rscript Random_forest_and_inTrees.R
+Random_forest_and_inTrees.R
 ```
 You'll get "importance_curve_TCF.pdf", "topMDA_TCF.pdf", and "readableRules_120_tree500.xls" in "~/TCF7L2_motif_freq/120/".
 
