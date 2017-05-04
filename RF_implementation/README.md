@@ -1,8 +1,8 @@
 # Part 2: RandomForest implementations in the paper 
 
-### Environment: Linux (may not fully compatible with Apple mac OS X). Please install the related R packages first before you run these R scripts below.
+### Environment: Linux (may not fully compatible with Apple mac OS X). Please install the related R packages (randomForest, inTrees, caret, ROCR, foreach, doMC, gtools) first before you run these R scripts below.
 
-The two sub-folders contains the raw unique peaks of TCF7L2 and MAX dataset. This readme file takes TCF7L2 dataset as example:
+The two sub-folders contains the raw unique peaks(peaks that not overlapped with any other samples in the dataset) of TCF7L2 and MAX dataset. This readme file takes TCF7L2 dataset as an example:
 
 ## 1. 10 times 10-folds Cross-Validation to find the best flanking regions:
 
