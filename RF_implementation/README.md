@@ -4,7 +4,7 @@
 
 The two sub-folders contains the raw unique peaks (peaks that not overlapped with any other samples in the dataset) of TCF7L2 and MAX dataset. This readme file takes TCF7L2 dataset as an example:
 
-## 1. 10 times 10-folds Cross-Validation to find the best flanking regions:
+### 1. 10 times 10-folds Cross-Validation to find the best flanking regions:
 
 #### 1). Run FlankingRegion_Top_NarrowPeak_auto.sh in the TCF7L2 folder to generate different flanking region BED files of each cell-line.  
 
@@ -39,7 +39,7 @@ Rscript Random_forest_with_F1score_ENCODE_10CV10_auto.R
 Rscript integrate_and_plotTCF.R
 ```
 
-## 2. Out of Bag (OOB) to find the best ntree value and 10 times 10-folds Cross-Validation to get AUROC values from the best flanking regions (+/-120 bp).
+### 2. Out of Bag (OOB) to find the best ntree value and 10 times 10-folds Cross-Validation to get AUROC values from the best flanking regions (+/-120 bp).
 Run:
 
 ```
@@ -47,7 +47,7 @@ Rscript AUROC_TCF_100times.R
 ```
 Then you would get "OOB_120_TCF7L2.pdf" and "AUC_TCF_100times_TCF7L2.pdf" in "~/TCF7L2_motif_freq/120/".
 
-## 3. Apply Random Forest with feature selection and tuning RF, get mean decrease accuracy (MDA) for each motif and extract rules by inTree.
+### 3. Apply Random Forest with feature selection and tuning RF, get mean decrease accuracy (MDA) for each motif and extract rules by inTree.
 Run the script below line by line:
 
 ```
