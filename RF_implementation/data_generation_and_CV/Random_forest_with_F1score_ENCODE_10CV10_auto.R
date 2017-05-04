@@ -1,5 +1,5 @@
 #  Author: Xin Wang  flyboyleo@gmail.com
-#run sh automergeTable.sh before this script
+
 library(foreach)
 library(doMC)
 registerDoMC(128)
