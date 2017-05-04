@@ -54,7 +54,7 @@ Run the script below line by line:
 ```
 Random_forest_and_inTrees.R
 ```
-You'll get "importance_curve_TCF.pdf" (fig. 3a), "topMDA_TCF.pdf" (fig. 3c), and "readableRules_120_tree500.xls" (Table 1) in "~/TCF7L2_motif_freq/120/".
+You'll get "importance_curve_TCF.pdf" (fig. 3a), "topMDA_TCF.pdf" (fig. 3c), and "readableRules_120_tree500.xls" (Raw Table 1 before filtering) in "~/TCF7L2_motif_freq/120/".
 
 
 
