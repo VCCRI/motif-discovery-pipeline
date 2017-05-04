@@ -34,10 +34,11 @@ cd ~/TCF7L2_motif_freq/; sh AutoMergeTable_auto_5-300.sh
 ```
 Rscript Random_forest_with_F1score_ENCODE_10CV10_auto.R
 ```
-#### 6.) Run integrate_and_plotTCF.R, then you would get "TCF7L2_unique_peaks_flanking5-300_10CV10.pdf" in "~/Downloads/TCF7L2/". (Additional file 1)
+#### 6.) Run integrate_and_plotTCF.R
 ```
 Rscript integrate_and_plotTCF.R
 ```
+Then you would get "TCF7L2_unique_peaks_flanking5-300_10CV10.pdf" in "~/Downloads/TCF7L2/". (Additional file 1)
 
 ### 2. Out of Bag (OOB) to find the best ntree value and 10 times 10-folds Cross-Validation to get AUROC values from the best flanking regions (+/-120 bp).
 Run:
@@ -45,7 +46,7 @@ Run:
 ```
 Rscript AUROC_TCF_100times.R
 ```
-Then you would get "OOB_120_TCF7L2.pdf" and "AUC_TCF_100times_TCF7L2.pdf" in "~/TCF7L2_motif_freq/120/".
+Then you would get "OOB_120_TCF7L2.pdf" (Additional file 2) and "AUC_TCF_100times_TCF7L2.pdf" (fig. 2) in "~/TCF7L2_motif_freq/120/".
 
 ### 3. Apply Random Forest with feature selection and tuning RF, get mean decrease accuracy (MDA) for each motif and extract rules by inTree.
 Run the script below line by line:
@@ -53,7 +54,7 @@ Run the script below line by line:
 ```
 Random_forest_and_inTrees.R
 ```
-You'll get "importance_curve_TCF.pdf", "topMDA_TCF.pdf", and "readableRules_120_tree500.xls" in "~/TCF7L2_motif_freq/120/".
+You'll get "importance_curve_TCF.pdf" (fig. 3a), "topMDA_TCF.pdf" (fig. 3c), and "readableRules_120_tree500.xls" (Table 1) in "~/TCF7L2_motif_freq/120/".
 
 
 
