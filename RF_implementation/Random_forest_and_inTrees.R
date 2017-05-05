@@ -71,14 +71,12 @@ plot(sort(importance(RFmodel3_500,scale = T)[,7], decreasing = T), type = "l", x
 
 dev.off()
 
-as.data.frame(cbind(as.character(motif[importance_RF_scaleT1$MeanDecreaseAccuracy>0]), 
-                    importance(RFmodel3_500,scale = T)),stringsAsFactors=F) -> importance_RF_scaleT3
+importance(RFmodel3_500,scale = T) -> importance_RF_scaleT3
+row.names(importance_RF_scaleT3)<-motif[importance_RF_scaleT1$MeanDecreaseAccuracy>0]
+                    
+importance_RF_scaleT3[importance_RF_scaleT3[,7]>6,1:7]->TCFimportanceBigerthan6 
 
-
-write.table(importance_RF_scaleT3, "importance_RF_120_TCF7L2_tree500_scaleT.xls",sep = "\t", quote = F,col.names = NA)
-
-# we sort by output to Excel to save time, if you'll run this script automatically, change this step to do it in R.
-as.matrix(read.delim("TCFimportanceBigerthan6_sortName.txt", row.names = 1))->topMDA
+TCFimportanceBigerthan6[order(TCFimportanceBigerthan6[,7],decreasing = T),]->topMDA
 
 colnames(topMDA) <- c("HCT-116","HEK293","HeLa-S3","HepG2","MCF-7","PANC-1","MDA")
 
@@ -94,7 +92,7 @@ heatmap.2(topMDA[,1:6],scale="none",Rowv=F,dendrogram="none",Colv=F, #labRow = "
 dev.off()
 
 
-# inTrees From example ------------------------------------------------------------
+# inTrees ------------------------------------------------------------
 
 
 library(inTrees)
