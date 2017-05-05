@@ -18,10 +18,10 @@ This step would be paralleled and quite CPU and memory consuming, it's recommand
 sh ../data_generation_and_CV/whole_pipline_auto_for_flanking_CV.sh
 ```
 
-#### 3.) Run G_Matrix_compare_auto2_only_bed.R to change modified HOMER pipeline output BED files to motif frequency matrix. 
+#### 3.) Run Generate_Matrix.R to change modified HOMER pipeline output BED files to motif frequency matrix. 
 It's recommanded to run this step on clusters such as Amazon AWS, change CPU numbers in the script header to fit your own configuration.
 ```
-mkdir ~/TCF7L2_motif_freq/; Rscript ../data_generation_and_CV/G_Matrix_compare_auto2_only_bed.R
+mkdir ~/TCF7L2_motif_freq/; Rscript ../data_generation_and_CV/Generate_Matrix.R
 ```
 #### 4.) Copy and run AutoMergeTable_auto_5-300.sh to merge each cell-line's motif frequency count to a matrix for Random Forest step. 
 Setp 3 output files are now at "\~/TCF7L2_motif_freq/", copy AutoMergeTable_auto_5-300.sh to "\~/TCF7L2_motif_freq/".
