@@ -4,7 +4,7 @@
 
 The two sub-folders contains the raw unique peaks (peaks that not overlapped with any other samples in the dataset) of TCF7L2 and MAX dataset. This readme file takes TCF7L2 dataset as an example:
 
-### 1. 10 times 10-folds Cross-Validation to find the best flanking regions:
+### 1. 10 times 10-fold Cross-Validation to find the best flanking regions:
 
 #### 1). Run FlankingRegion_Top_NarrowPeak_auto.sh in the TCF7L2 folder to generate different flanking region BED files of each cell-line.  
 
@@ -40,7 +40,7 @@ Rscript integrate_and_plotTCF.R
 ```
 Then you would get "TCF7L2_unique_peaks_flanking5-300_10CV10.pdf" in "~/Downloads/TCF7L2/". (Additional file 1)
 
-### 2. Out of Bag (OOB) to find the best ntree value and 10 times 10-folds Cross-Validation to get AUROC values from the best flanking regions (+/-120 bp).
+### 2. Out of Bag (OOB) to find the best ntree value and 10 times 10-fold Cross-Validation to get AUROC values from the best flanking regions (+/-120 bp).
 Run:
 
 ```
