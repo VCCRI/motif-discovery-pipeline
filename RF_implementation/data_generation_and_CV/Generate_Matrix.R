@@ -6,8 +6,8 @@ library(foreach)
 library(doMC)
 registerDoMC(127)   # For AWS 128 CPUs instance. Change here to fit your own configuration.
 
-this.dir <- dirname(parent.frame(2)$ofile) # setting working directory to this source file location, may not work in Rstudio, you could change it manually to your absolute path.
-setwd(this.dir)
+#this.dir <- dirname(parent.frame(2)$ofile) # setting working directory to this source file location, you could change it manually to your absolute path.
+#setwd(this.dir)
 setwd("../TCF7L2/");
 
 list.dirs(recursive = F)->dirs
