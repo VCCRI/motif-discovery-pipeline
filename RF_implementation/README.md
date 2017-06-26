@@ -2,7 +2,7 @@
 
 ### Environment: Linux (may not fully compatible with Apple mac OS X). Please install the related R packages (randomForest, inTrees, caret, ROCR, foreach, doMC, gtools) first before you run these R scripts below. 
 
-#### We ran these scripts on Amazon AWS Memory Optimized X1 instance with 128 CPUs (x1.32xlarge). Any sintance equivelet or larger than x1.32xlarge is recommended (or you need to modify the scripts to cancel the parrelled running for a smaller instance.)  
+#### We ran these scripts on Amazon AWS Memory Optimized X1 instance with 128 CPUs (x1.32xlarge). Any sintance equivelet or larger than x1.32xlarge is recommended (or you need to modify the scripts to cancel the parrelled running for a smaller instance).  
 
 The two sub-folders contains the raw unique peaks (peaks that not overlapped with any other samples in the dataset) of TCF7L2 and MAX dataset. This readme file takes TCF7L2 dataset as an example:
 
