@@ -25,7 +25,7 @@ It's recommanded to run this step on clusters such as Amazon AWS, change CPU num
 ```
 mkdir ~/TCF7L2_motif_freq/; Rscript ../data_generation_and_CV/Generate_Matrix.R
 ```
-(Don't forget to change the folder&file names in Generate_Matrix.R if you are running MAX dataset.)
+(Before run Generate_Matrix.R, you need to open it and replace the "setwd" path to your own path where you download and run the TCF7L2 data set. Also, don't forget to change the folder&file names in Generate_Matrix.R if you are running MAX dataset.)
 
 #### 4.) Copy and run AutoMergeTable_auto_5-300.sh to merge each cell-line's motif frequency count to a matrix for Random Forest step. 
 Setp 3 output files are now at "\~/TCF7L2_motif_freq/", copy AutoMergeTable_auto_5-300.sh to "\~/TCF7L2_motif_freq/".
