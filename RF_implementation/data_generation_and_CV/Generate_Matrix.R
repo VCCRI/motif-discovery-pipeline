@@ -8,7 +8,7 @@ registerDoMC(127)   # For AWS 128 CPUs instance. Change here to fit your own con
 
 #this.dir <- dirname(parent.frame(2)$ofile) # setting working directory to this source file location, you could change it manually to your absolute path.
 #setwd(this.dir)
-setwd("../TCF7L2/");
+setwd("~/motif_git/motif-discovery-pipeline/RF_implementation/TCF7L2/");  # Change the path to your own path here.
 
 list.dirs(recursive = F)->dirs
 
@@ -24,8 +24,10 @@ foreach(h = 1:length(dirs)) %dopar% {
   
 
 foreach(k = 1:length(path)) %dopar%{
-  setwd(this.dir)
-  setwd("../TCF7L2/");
+  #setwd(this.dir)
+  #setwd("../TCF7L2/");
+  setwd("~/motif_git/motif-discovery-pipeline/RF_implementation/TCF7L2/") # Change the path to your own path here.
+  
   es <- read.table(path[k],sep="\t")
   
   setwd("~/TCF7L2_motif_freq/")
