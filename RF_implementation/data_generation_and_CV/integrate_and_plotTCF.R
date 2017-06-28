@@ -41,7 +41,7 @@ axis(1, at=1:length(dirs), labels=c(c(5,10,seq(20,300,20))))
 abline(v = 8,col="red", lty = 3)
 
 lapply(Acc_F1,function(c){c[,3]})[mixedorder(dirs)] -> F1_HEK293
-boxplot(HEK293, xaxt = "n",main = "HEK293",
+boxplot(F1_HEK293, xaxt = "n",main = "HEK293",
         xlab= "Flanking boundary from peak centres (bp)", ylab= "F1 score")
 axis(1, at=1:length(dirs), labels=c(c(5,10,seq(20,300,20))))
 abline(v = 8,col="red", lty = 3)
