@@ -2,35 +2,47 @@
 
 #Author: Xin Wang, flyboyleo@gmail.com
 
+# Run this script under RF_implementation/TCF7L2 orv other TF folder.
+
+tail(strsplit(getwd(),split = "/")[[1]],n = 1)->TF
+
+mkdircommand<-paste0("mkdir ~/",TF,"_motif_freq/")
+
+system(mkdircommand)
+
 library(foreach)
 library(doMC)
-registerDoMC(127)   # For AWS 128 CPUs instance. Change here to fit your own configuration.
+registerDoMC(32)   # For AWS 32 CPUs instance. Change here to fit your own configuration.
 
-#this.dir <- dirname(parent.frame(2)$ofile) # setting working directory to this source file location, you could change it manually to your absolute path.
+#this.dir <- dirname(parent.frame(2)$ofile) # setting working directory to this source file location, may not work in Rstudio, you could change it manually to your absolute path.
 #setwd(this.dir)
-setwd("~/motif_git/motif-discovery-pipeline/RF_implementation/TCF7L2/");  # Change the path to your own path here.
+#setwd("/Volumes/Ho_lab/Xin/narrowPeaks_Znf274/motif-discovery-pipeline-master/RF_implementation/MXI1");
+getwd()->TFfolder
 
 list.dirs(recursive = F)->dirs
 
 foreach(h = 1:length(dirs)) %dopar% {
   
-
-  path<-c(paste0(dirs[h],"/HCT-116.only.bed.500.txt/motif.bed"),
-          paste0(dirs[h],"/HepG2.only.bed.500.txt/motif.bed"),
-          paste0(dirs[h],"/HeLa.only.bed.500.txt/motif.bed"),
-          paste0(dirs[h],"/MCF-7.only.bed.500.txt/motif.bed"),
-          paste0(dirs[h],"/PANC-1.only.bed.500.txt/motif.bed"),
-          paste0(dirs[h],"/HEK293.only.bed.500.txt/motif.bed"))
+  setwd(TFfolder);
+  setwd(dirs[h])
   
-
-foreach(k = 1:length(path)) %dopar%{
-  #setwd(this.dir)
-  #setwd("../TCF7L2/");
-  setwd("~/motif_git/motif-discovery-pipeline/RF_implementation/TCF7L2/") # Change the path to your own path here.
+  list.dirs(recursive = F)->samplesFolder
+  strsplit(samplesFolder,split = "/")->samplesFolderlist
+  sapply(samplesFolderlist, function(c){c[2]})->samplesFolderName
   
+  path<-NULL;
+  
+  for (i in 1:length(samplesFolderName)){
+   path[i]<-paste0(dirs[h],"/", samplesFolderName[i],"/motif.bed")
+  }
+
+ foreach(k = 1:length(path)) %dopar%{
+
+  setwd(TFfolder);
   es <- read.table(path[k],sep="\t")
   
-  setwd("~/TCF7L2_motif_freq/")
+  output_path<-paste0("~/",TF,"_motif_freq/")
+  setwd(output_path)
   dir.create(dirs[h])
   setwd(dirs[h])
   
@@ -59,5 +71,6 @@ foreach(k = 1:length(path)) %dopar%{
   write.table(t(counts),file=strsplit(dirname(file.path(path[k])),split = "/")[[1]][3],sep="\t",col.names = NA)
   }
 }
+
 
 
