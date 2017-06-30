@@ -23,7 +23,7 @@ sh ../data_generation_and_CV/whole_pipline_auto_for_flanking_CV.sh
 #### 3.) Run Generate_Matrix.R to change modified HOMER pipeline output BED files to motif frequency matrix. 
 It's recommanded to run this step on clusters such as Amazon AWS, change CPU numbers in the script header to fit your own configuration.
 ```
-mkdir ~/TCF7L2_motif_freq/; Rscript ../data_generation_and_CV/Generate_Matrix.R
+Rscript ../data_generation_and_CV/Generate_Matrix.R
 ```
 (Before run Generate_Matrix.R, you need to open it and replace the "setwd" path to your own path where you download and run the TCF7L2 data set. Also, don't forget to change the folder&file names in Generate_Matrix.R if you are running MAX dataset.)
 
