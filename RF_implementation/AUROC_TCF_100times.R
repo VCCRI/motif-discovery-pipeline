@@ -7,6 +7,7 @@ library(doMC)
 registerDoMC(6)  # Change 6 to your CPU cores number.
 library(randomForest)
 library(ROCR)
+library("caret")
 
 dd2<-read.table("120_tmp6.motif.bed.out")[-1,-1] # renamed from the "tmp6.out in ~/TCF7L2_motif_freq/120/" 
 
@@ -33,7 +34,6 @@ plot(RFmodel_1000$err.rate[,1], log="y",col=1, type = "l", xlab="Number of trees
 dev.off()
 
 
-library("caret")
 
 #Generate a cross-validation set
 
