@@ -31,4 +31,7 @@ cd ..
 
 done
 
+wait
+
+exit
 
