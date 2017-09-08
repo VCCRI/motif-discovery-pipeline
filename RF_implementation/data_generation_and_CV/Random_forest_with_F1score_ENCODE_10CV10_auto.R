@@ -2,7 +2,8 @@
 
 library(foreach)
 library(doMC)
-registerDoMC(128)
+library(parallel)
+registerDoMC(detectCores()-1) #Automatically detecting the number of cores.
 library("caret")
 require("randomForest")
 setwd("~/TCF7L2_motif_freq/");
