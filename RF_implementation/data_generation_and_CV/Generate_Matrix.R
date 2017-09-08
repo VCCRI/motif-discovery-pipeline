@@ -12,7 +12,8 @@ system(mkdircommand)
 
 library(foreach)
 library(doMC)
-registerDoMC(32)   # For AWS 32 CPUs instance. Change here to fit your own configuration.
+library(parallel)
+registerDoMC(detectCores()-1) #Automatically detecting the number of cores.
 
 #this.dir <- dirname(parent.frame(2)$ofile) # setting working directory to this source file location, may not work in Rstudio, you could change it manually to your absolute path.
 #setwd(this.dir)
